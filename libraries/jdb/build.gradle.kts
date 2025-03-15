@@ -19,12 +19,12 @@ repositories {
 }
 
 dependencies {
-    compileOnly("com.google.code.gson:gson:2.11.0")
+    compileOnly("com.google.code.gson:gson:2.12.1")
     implementation("org.jetbrains:annotations:26.0.2")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.3")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.1")
-    testImplementation("com.google.code.gson:gson:2.11.0")
+    testImplementation("com.google.code.gson:gson:2.12.1")
 }
 
 tasks {
