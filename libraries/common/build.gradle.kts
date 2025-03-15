@@ -28,7 +28,7 @@ dependencies {
 
     // testing
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.3")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.12.1")
     testImplementation("com.google.code.gson:gson:2.12.1")
 }
 
