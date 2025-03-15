@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
-    compileOnly("de.oliver.FancyAnalytics:logger:0.0.4")
+    compileOnly("de.oliver.FancyAnalytics:logger:0.0.6")
 }
 
 tasks {

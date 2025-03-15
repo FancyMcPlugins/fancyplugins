@@ -23,7 +23,7 @@ dependencies {
     implementation(project(":libraries:packets:factories"))
     implementation(project(":libraries:packets:implementations:1_20_6"))
     implementation(project(":libraries:packets:implementations:1_21_3"))
-    implementation("de.oliver.FancyAnalytics:logger:0.0.4")
+    implementation("de.oliver.FancyAnalytics:logger:0.0.6")
 }
 
 paper {
