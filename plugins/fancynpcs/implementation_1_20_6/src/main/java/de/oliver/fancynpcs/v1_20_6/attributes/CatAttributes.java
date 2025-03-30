@@ -6,6 +6,7 @@ import de.oliver.fancynpcs.v1_20_6.ReflectionHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.Cat;
+import net.minecraft.world.item.DyeColor;
 import org.bukkit.entity.EntityType;
 
 import java.util.ArrayList;
@@ -58,6 +59,25 @@ public class CatAttributes {
                 cat.setOrderedToSit(true);
                 cat.setInSittingPose(true, false);
             }
+        }
+    }
+
+    private static void setColor(Npc npc, String value){
+        final Cat cat = ReflectionHelper.getEntity(npc);
+
+        if (value.equalsIgnoreCase("none") || value.isEmpty()){
+            cat.setTame(false, false);
+            return;
+        }
+
+        try {
+            DyeColor color = DyeColor.valueOf(value.toUpperCase());
+            if (!cat.isTame()){
+                cat.setTame(true, false);
+            }
+            cat.setCollarColor(color);
+        } catch (IllegalArgumentException e){
+            System.out.print("Invalid Color: " + value);
         }
     }
 

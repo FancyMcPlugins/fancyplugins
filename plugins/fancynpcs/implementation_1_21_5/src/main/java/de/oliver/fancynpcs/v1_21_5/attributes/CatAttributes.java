@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.Cat;
 import net.minecraft.world.entity.animal.CatVariant;
+import net.minecraft.world.item.DyeColor;
 import org.bukkit.entity.EntityType;
 
 import java.util.ArrayList;
@@ -36,6 +37,13 @@ public class CatAttributes {
                 List.of("standing", "sleeping", "sitting"),
                 List.of(EntityType.CAT),
                 CatAttributes::setPose
+        ));
+
+        attributes.add(new NpcAttribute(
+                "color",
+                List.of("RED", "BLUE", "YELLOW", "GREEN", "PURPLE", "ORANGE", "LIME", "MAGENTA", "BROWN", "WHITE", "GRAY", "LIGHT_GRAY", "LIGHT_BLUE", "BLACK", "CYAN", "PINK", "NONE"),
+                List.of(EntityType.CAT),
+                CatAttributes::setColor
         ));
 
         return attributes;
@@ -78,5 +86,25 @@ public class CatAttributes {
                 .createLookup()
                 .lookup(Registries.CAT_VARIANT)
                 .orElseThrow();
+    }
+
+    private static void setColor(Npc npc, String value) {
+        Cat cat = ReflectionHelper.getEntity(npc);
+
+        if (value.equalsIgnoreCase("none") || value.isEmpty()) {
+            // Reset to no collar
+            cat.setTame(false, false);
+            return;
+        }
+
+        try {
+            DyeColor color = DyeColor.valueOf(value.toUpperCase());
+            if (!cat.isTame()){
+                cat.setTame(true, false);
+            }
+            cat.setCollarColor(color);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid cat collar color: " + value);
+        }
     }
 }
