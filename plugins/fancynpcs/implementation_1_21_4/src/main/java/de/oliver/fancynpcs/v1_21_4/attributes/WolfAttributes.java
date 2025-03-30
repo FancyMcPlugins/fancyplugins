@@ -43,10 +43,10 @@ public class WolfAttributes {
         ));
 
         attributes.add(new NpcAttribute(
-                "color",
+                "collar_color",
                 List.of("RED", "BLUE", "YELLOW", "GREEN", "PURPLE", "ORANGE", "LIME", "MAGENTA", "BROWN", "WHITE", "GRAY", "LIGHT_GRAY", "LIGHT_BLUE", "BLACK", "CYAN", "PINK", "NONE"),
                 List.of(EntityType.WOLF),
-                WolfAttributes::setColor
+                WolfAttributes::setCollarColor
         ));
 
         return attributes;
@@ -96,7 +96,7 @@ public class WolfAttributes {
         );
     }
 
-    public static void setColor(Npc npc, String value) {
+    public static void setCollarColor(Npc npc, String value) {
         Wolf wolf = ReflectionHelper.getEntity(npc); // NMS Wolf
 
         if (value.equalsIgnoreCase("none") || value.isEmpty()) {
