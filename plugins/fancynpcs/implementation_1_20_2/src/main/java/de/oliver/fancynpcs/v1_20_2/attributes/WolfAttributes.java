@@ -4,6 +4,7 @@ import de.oliver.fancynpcs.api.Npc;
 import de.oliver.fancynpcs.api.NpcAttribute;
 import de.oliver.fancynpcs.v1_20_2.ReflectionHelper;
 import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.item.DyeColor;
 import org.bukkit.entity.EntityType;
 
 import java.util.ArrayList;
@@ -28,6 +29,13 @@ public class WolfAttributes {
                 WolfAttributes::setAngry
         ));
 
+        attributes.add(new NpcAttribute(
+                "color",
+                List.of("RED", "BLUE", "YELLOW", "GREEN", "PURPLE", "ORANGE", "LIME", "MAGENTA", "BROWN", "WHITE", "GRAY", "LIGHT_GRAY", "LIGHT_BLUE", "BLACK", "CYAN", "PINK", "NONE"),
+                List.of(EntityType.WOLF),
+                WolfAttributes::setColor
+        ));
+
         return attributes;
     }
 
@@ -46,5 +54,25 @@ public class WolfAttributes {
         boolean angry = Boolean.parseBoolean(value.toLowerCase());
 
         wolf.setRemainingPersistentAngerTime(angry ? 100 : 0);
+    }
+
+    private static void setColor(Npc npc, String value) {
+        Wolf wolf = ReflectionHelper.getEntity(npc);
+
+        if (value.equalsIgnoreCase("none") || value.isEmpty()) {
+            // Reset to no collar
+            wolf.setTame(false);
+            return;
+        }
+
+        try {
+            DyeColor color = DyeColor.valueOf(value.toUpperCase());
+            if (!wolf.isTame()){
+                wolf.setTame(true);
+            }
+            wolf.setCollarColor(color);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid wolf collar color: " + value);
+        }
     }
 }

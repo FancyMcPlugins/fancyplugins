@@ -9,6 +9,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.animal.WolfVariant;
+import net.minecraft.world.item.DyeColor;
 import org.bukkit.entity.EntityType;
 
 import java.util.ArrayList;
@@ -38,6 +39,13 @@ public class WolfAttributes {
                 List.of("PALE", "SPOTTED", "SNOWY", "BLACK", "ASHEN", "RUSTY", "WOODS", "CHESTNUT", "STRIPED"),
                 List.of(EntityType.WOLF),
                 WolfAttributes::setVariant
+        ));
+
+        attributes.add(new NpcAttribute(
+                "color",
+                List.of("RED", "BLUE", "YELLOW", "GREEN", "PURPLE", "ORANGE", "LIME", "MAGENTA", "BROWN", "WHITE", "GRAY", "LIGHT_GRAY", "LIGHT_BLUE", "BLACK", "CYAN", "PINK", "NONE"),
+                List.of(EntityType.WOLF),
+                WolfAttributes::setColor
         ));
 
         return attributes;
@@ -75,6 +83,26 @@ public class WolfAttributes {
             wolf.setVariant(Holder.direct(variant));
         } else {
             System.out.println("Wolf variant not found: " + variantLocation);
+        }
+    }
+
+    private static void setColor(Npc npc, String value) {
+        Wolf wolf = ReflectionHelper.getEntity(npc);
+
+        if (value.equalsIgnoreCase("none") || value.isEmpty()) {
+            // Reset to no collar
+            wolf.setTame(false, false);
+            return;
+        }
+
+        try {
+            DyeColor color = DyeColor.valueOf(value.toUpperCase());
+            if (!wolf.isTame()){
+                wolf.setTame(true, false);
+            }
+            wolf.setCollarColor(color);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid wolf collar color: " + value);
         }
     }
 

@@ -5,9 +5,10 @@ import de.oliver.fancynpcs.api.NpcAttribute;
 import de.oliver.fancynpcs.v1_21_5.ReflectionHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.registries.VanillaRegistries;
-import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.entity.animal.wolf.WolfVariant;
@@ -45,6 +46,13 @@ public class WolfAttributes {
                 WolfAttributes::setVariant
         ));
 
+        attributes.add(new NpcAttribute(
+                "color",
+                List.of("RED", "BLUE", "YELLOW", "GREEN", "PURPLE", "ORANGE", "LIME", "MAGENTA", "BROWN", "WHITE", "GRAY", "LIGHT_GRAY", "LIGHT_BLUE", "BLACK", "CYAN", "PINK", "NONE"),
+                List.of(EntityType.WOLF),
+                WolfAttributes::setColor
+        ));
+
         return attributes;
     }
 
@@ -68,14 +76,49 @@ public class WolfAttributes {
     private static void setVariant(Npc npc, String value) {
         Wolf wolf = ReflectionHelper.getEntity(npc);
 
-        Holder<WolfVariant> variant = getWolfVariantRegistry()
-                .get(ResourceKey.create(
-                        Registries.WOLF_VARIANT,
-                        ResourceLocation.withDefaultNamespace(value.toLowerCase())
-                ))
-                .orElseThrow();
+        Registry<WolfVariant> registry = wolf.level().registryAccess().lookupOrThrow(Registries.WOLF_VARIANT);
 
-        wolf.setVariant(variant);
+        ResourceLocation variantLocation = ResourceLocation.tryParse("minecraft:" + value.toLowerCase());
+        if (variantLocation == null) {
+            System.out.println("Invalid variant name: " + value);
+            return;
+        }
+
+        WolfVariant variant = registry.getOptional(variantLocation).orElse(null);
+        if (variant == null) {
+            System.out.println("Wolf variant not found: " + variantLocation);
+            return;
+        }
+
+        // Get the ResourceKey from the registry
+        registry.getResourceKey(variant).ifPresentOrElse(
+                key -> {
+                    // Get the holder from the registry — this is properly bound
+                    Holder<WolfVariant> holder = registry.wrapAsHolder(variant);
+                    wolf.setVariant(holder);
+                },
+                () -> System.out.println("Wolf variant not registered: " + variantLocation)
+        );
+    }
+
+    private static void setColor(Npc npc, String value) {
+        Wolf wolf = ReflectionHelper.getEntity(npc);
+
+        if (value.equalsIgnoreCase("none") || value.isEmpty()) {
+            // Reset to no collar
+            wolf.setTame(false, false);
+            return;
+        }
+
+        try {
+            DyeColor color = DyeColor.valueOf(value.toUpperCase());
+            if (!wolf.isTame()){
+                wolf.setTame(true, false);
+            }
+            wolf.setCollarColor(color);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid wolf collar color: " + value);
+        }
     }
 
     private static HolderLookup.RegistryLookup<WolfVariant> getWolfVariantRegistry() {
