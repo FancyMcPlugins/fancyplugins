@@ -1,7 +1,7 @@
 package de.oliver.fancyholograms.api.events;
 
+import de.oliver.fancyholograms.api.data.HologramData;
 import de.oliver.fancyholograms.api.hologram.Hologram;
-import de.oliver.fancyholograms.api.data.*;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.HandlerList;
 import org.jetbrains.annotations.NotNull;
@@ -82,7 +82,7 @@ public final class HologramUpdateEvent extends HologramEvent {
         SHADOW_RADIUS,
         SHADOW_STRENGTH,
         UPDATE_TEXT_INTERVAL,
-        UPDATE_VISIBILITY_DISTANCE;
+        UPDATE_VISIBILITY_DISTANCE
     }
 
 }

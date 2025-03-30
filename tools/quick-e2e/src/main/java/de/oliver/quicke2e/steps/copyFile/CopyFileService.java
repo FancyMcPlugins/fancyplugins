@@ -29,10 +29,19 @@ public class CopyFileService {
             }
         }
 
-        Path target = context.serverEnvPath().resolve(destination + "/" + Path.of(realSource).getFileName());
+        Path target = context.serverEnvPath().resolve(destination);
 
         try {
             Files.copy(Path.of(realSource), target, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void createDirectory(Context context, String directory) {
+        Path path = context.serverEnvPath().resolve(directory);
+        try {
+            Files.createDirectories(path);
         } catch (IOException e) {
             e.printStackTrace();
         }

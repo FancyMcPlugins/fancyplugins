@@ -11,6 +11,12 @@ order: 8
 A monorepo (monolithic repository) is a version control strategy where multiple related projects, such as Minecraft plugins and libraries, reside within a single repository. 
 Instead of maintaining separate repositories for each plugin or library, all codebases share the same version control system, dependencies, and development workflow.
 
+Read more about monorepos there:
+- https://monorepo.tools/
+- https://medium.com/@lewimuchiri/setting-up-a-gradle-monorepo-with-spring-boot-and-version-catalogs-41fdf1112dac
+- https://dev.to/scorsi/why-i-choose-to-use-a-mono-repo-for-a-very-large-project-hkp
+- https://docs.gradle.org/current/userguide/intro_multi_project_builds.html
+
 ## Benefits of a Monorepo
 
 - **Code Reuse**: Share common libraries between plugins without duplication.

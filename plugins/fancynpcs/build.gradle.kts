@@ -83,6 +83,7 @@ dependencies {
 }
 
 paper {
+    name = "FancyNpcs"
     main = "de.oliver.fancynpcs.FancyNpcs"
     bootstrapper = "de.oliver.fancynpcs.loaders.FancyNpcsBootstrapper"
     loader = "de.oliver.fancynpcs.loaders.FancyNpcsLoader"

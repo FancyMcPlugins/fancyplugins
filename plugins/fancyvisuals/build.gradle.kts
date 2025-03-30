@@ -50,6 +50,7 @@ dependencies {
 }
 
 paper {
+    name = "FancyVisuals"
     main = "de.oliver.fancyvisuals.FancyVisuals"
     bootstrapper = "de.oliver.fancyvisuals.loaders.FancyVisualsBootstrapper"
     loader = "de.oliver.fancyvisuals.loaders.FancyVisualsLoader"

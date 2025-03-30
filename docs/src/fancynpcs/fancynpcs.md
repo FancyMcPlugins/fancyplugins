@@ -2,7 +2,7 @@
 title: FancyNpcs
 icon: accessibility
 expanded: true
-order: 100
+order: 200
 ---
 
 #
@@ -50,4 +50,4 @@ You can download the latest version of FancyNpcs from the following platforms:
 
 [!button size="s" icon="download" iconAlign="left" text="Download from Hangar" target="blank"](https://hangar.papermc.io/Oliver/FancyNpcs/versions)
 
-How to get started with FancyNpcs? Check out the [this page](getting-started.md).
+How to get started with FancyNpcs? Check out [this page](getting-started.md).

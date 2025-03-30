@@ -18,8 +18,9 @@ Simple, lightweight and feature-rich plugins for Minecraft servers.
 
 ## Modules
 
-> [!CAUTION]
-> The monorepo is still work in progress. Expect breaking changes and incomplete documentation.
+> [!TIP]
+> Read the [monorepo.md](docs/src/development-guidelines/monorepo.md) for more information about the monorepo.
+> Here is a blog article about why we use a monorepo: [why-monorepo.md](docs/src/blog/why-monorepo.md).
 
 Plugins:
 - fancynpcs: create and manage fancy looking npcs ([old repository](https://github.com/FancyMcPlugins/FancyNpcs))

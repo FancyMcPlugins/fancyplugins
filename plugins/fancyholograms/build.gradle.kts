@@ -79,6 +79,7 @@ dependencies {
 }
 
 paper {
+    name = "FancyHolograms"
     main = "de.oliver.fancyholograms.main.FancyHologramsPlugin"
     bootstrapper = "de.oliver.fancyholograms.main.FancyHologramsBootstrapper"
     loader = "de.oliver.fancyholograms.main.FancyHologramsLoader"

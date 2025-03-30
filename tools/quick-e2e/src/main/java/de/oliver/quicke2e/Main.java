@@ -40,12 +40,15 @@ public class Main {
         startScript.writeStartScript(context);
 
         GradleService gradle = new GradleService();
+//        gradle.runTask(":plugins:fancynpcs:shadowJar");
 //        gradle.runTask(":plugins:fancyholograms:shadowJar");
 //        gradle.runTask(":plugins:fancyvisuals:shadowJar");
 
         CopyFileService copyFile = new CopyFileService();
-        copyFile.copyFile(context, "plugins/fancyholograms/build/libs", "FancyHolograms-.*\\.jar", "plugins");
-        copyFile.copyFile(context, "plugins/fancyvisuals/build/libs", "FancyVisuals-.*\\.jar", "plugins");
+        copyFile.createDirectory(context, "plugins");
+        copyFile.copyFile(context, "plugins/fancynpcs/build/libs", "FancyNpcs-.*\\.jar", "plugins/FancyNpcs.jar");
+        copyFile.copyFile(context, "plugins/fancyholograms-v2/build/libs", "FancyHolograms-.*\\.jar", "plugins/FancyHolograms.jar");
+        copyFile.copyFile(context, "plugins/fancyvisuals/build/libs", "FancyVisuals-.*\\.jar", "plugins/FancyVisuals.jar");
 
         StartServerService startServer = new StartServerService();
         startServer.startServer(context);
