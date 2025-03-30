@@ -34,6 +34,13 @@ public class CatAttributes {
                 CatAttributes::setPose
         ));
 
+        attributes.add(new NpcAttribute(
+                "color",
+                List.of("RED", "BLUE", "YELLOW", "GREEN", "PURPLE", "ORANGE", "LIME", "MAGENTA", "BROWN", "WHITE", "GRAY", "LIGHT_GRAY", "LIGHT_BLUE", "BLACK", "CYAN", "PINK", "NONE"),
+                List.of(EntityType.CAT),
+                CatAttributes::setColor
+        ));
+
         return attributes;
     }
 
