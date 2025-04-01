@@ -7,7 +7,7 @@ order: 100
 
 #
 
-![](/static/fancyholograms/banner.png)
+![](../static/logos-and-banners/fancyholograms-banner.png)
 
 !!!
 Simple, lightweight and feature-rich hologram plugin for Paper and Folia servers using packets.

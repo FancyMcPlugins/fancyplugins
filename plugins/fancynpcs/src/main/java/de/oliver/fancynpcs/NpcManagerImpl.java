@@ -171,6 +171,7 @@ public class NpcManagerImpl implements NpcManager {
             npcConfig.set("npcs." + data.getId() + ".glowing", data.isGlowing());
             npcConfig.set("npcs." + data.getId() + ".glowingColor", data.getGlowingColor().toString());
             npcConfig.set("npcs." + data.getId() + ".turnToPlayer", data.isTurnToPlayer());
+            npcConfig.set("npcs." + data.getId() + ".turnToPlayerDistance", data.getTurnToPlayerDistance());
             npcConfig.set("npcs." + data.getId() + ".messages", null);
             npcConfig.set("npcs." + data.getId() + ".playerCommands", null);
             npcConfig.set("npcs." + data.getId() + ".serverCommands", null);
@@ -302,6 +303,7 @@ public class NpcManagerImpl implements NpcManager {
             boolean glowing = npcConfig.getBoolean("npcs." + id + ".glowing");
             NamedTextColor glowingColor = NamedTextColor.NAMES.value(npcConfig.getString("npcs." + id + ".glowingColor", "white"));
             boolean turnToPlayer = npcConfig.getBoolean("npcs." + id + ".turnToPlayer");
+            int turnToPlayerDistance = npcConfig.getInt("npcs." + id + ".turnToPlayerDistance", -1);
 
             Map<ActionTrigger, List<NpcAction.NpcActionData>> actions = new ConcurrentHashMap<>();
 
@@ -392,8 +394,6 @@ public class NpcManagerImpl implements NpcManager {
                     attributes.put(attribute, value);
                 }
             }
-
-            int turnToPlayerDistance = (int) npcConfig.getDouble("npcs." + id + ".turnToPlayerDistance", 0);
 
             NpcData data = new NpcData(
                     id,

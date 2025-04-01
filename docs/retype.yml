@@ -1,6 +1,6 @@
 input: src
 output: .retype
-url: https://fancyplugins.de
+url: https://docs.fancyplugins.de
 branding:
   title: Fancy Plugins
   logo: /static/favicon.png

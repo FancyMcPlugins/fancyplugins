@@ -2,17 +2,19 @@
 
 <div align="center">
 
-![](docs/src/static/fancyplugins-banner.png)
+![](docs/src/static/logos-and-banners/fancyplugins-banner.png)
 
 [![Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/modrinth_vector.svg)](https://modrinth.com/user/Oliver)
 [![Hangar](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/hangar_vector.svg)](https://hangar.papermc.io/Oliver)
+[![Unsupported spigot](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/unsupported/spigot_vector.svg)]()
 
+[![Website](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/documentation/website_vector.svg)](https://fancyplugins.de)
+[![Documentation](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/documentation/ghpages_vector.svg)](https://docs.fancyplugins.de)
+[![discord-plural](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/social/discord-plural_46h.png)](https://discord.gg/ZUgYCEJUEx)
+
+
+[![CodeFactor](https://www.codefactor.io/repository/github/fancymcplugins/fancyplugins/badge)](https://www.codefactor.io/repository/github/fancymcplugins/fancyplugins)
 [![Lines of Code](https://tokei.rs/b1/github/fancymcplugins/fancyplugins?category=code)](https://github.com/fancymcplugins/fancyplugins)
-[![Discord](https://img.shields.io/discord/899740810956910683?cacheSeconds=3600&logo=discord&logoColor=white&label=%20&labelColor=%235865F2&color=%23707BF4)](https://discord.gg/ZUgYCEJUEx)
-
-<br />
-
-Simple, lightweight and feature-rich plugins for Minecraft servers.
 
 </div>
 
@@ -22,28 +24,25 @@ Simple, lightweight and feature-rich plugins for Minecraft servers.
 > Read the [monorepo.md](docs/src/development-guidelines/monorepo.md) for more information about the monorepo.
 > Here is a blog article about why we use a monorepo: [why-monorepo.md](docs/src/blog/why-monorepo.md).
 
-Plugins:
-- fancynpcs: create and manage fancy looking npcs ([old repository](https://github.com/FancyMcPlugins/FancyNpcs))
-- fancyholograms (v2): create fancy looking holograms ([old repository](https://github.com/FancyMcPlugins/FancyHolograms))
-- fancyholograms (v3): create fancy looking holograms
-- fancyvisuals: plugin to customize all visual components of the game
+**Plugins:**
+- FancyNpcs: create and manage fancy looking npcs ([old repository](https://github.com/FancyMcPlugins/FancyNpcs))
+- FancyHolograms (v2): create fancy looking holograms ([old repository](https://github.com/FancyMcPlugins/FancyHolograms))
+- FancyHolograms (v3): create fancy looking holograms (work in progress)
+- FancyVisuals: plugin to customize all visual components of the game (work in progress)
 
-Libraries:
-- common: common classes and utilities (FancyLib previously)
-- jdb: json database library (included in FancyLib previously)
-- plugin-tests: testing library for plugins (included in FancyLib previously)
-- packets: packet handling library (FancySitula previously)
+**Libraries:**
+- Common: common classes and utilities (FancyLib previously)
+- JDB: json database library (included in FancyLib previously)
+- Plugin Tests: testing library for plugins (included in FancyLib previously)
+- Packets: packet handling library (FancySitula previously)
 
-Tools:
-- deployment: deploy plugins to platforms like modrinth
-- quick-e2e: generate a quick end-to-end environment for testing
-
-Docs: documentation for all plugins, libraries and tools.
+**Tools:**
+- Deployment: deploy plugins to platforms like modrinth
+- Quick E2E: generate a quick end-to-end environment for testing
 
 Future packages that are planned to be added to the monorepo:
 - fancywebsite: https://github.com/FancyMcPlugins/FancyWebsite
 - (fancymorphs: https://github.com/FancyMcPlugins/FancyMorphs)
-- modrinth-sdk: an SDK for the modrinth API (which then can be used in the deployment and quick-e2e tool)
 - minecraft-client: a lightweight Minecraft client for testing
 
 ## Usage
