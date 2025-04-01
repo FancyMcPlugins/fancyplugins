@@ -1,1 +1,2 @@
-This is a test dev build.
+- Updated MiniMessage version (now supports [text shadow with custom colors](https://docs.advntr.dev/minimessage/format.html#shadow-color)) 
+- Add collar_color attribute for wolves

@@ -7,7 +7,7 @@ order: 200
 
 #
 
-![](/static/fancynpcs/banner.png)
+![](../static/logos-and-banners/fancynpcs-banner.png)
 
 !!!
 Simple, lightweight and feature-rich NPC plugin for Paper and Folia servers using packets.

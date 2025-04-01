@@ -39,7 +39,7 @@ dependencies {
     compileOnly("de.oliver.FancyAnalytics:api:0.1.6") // loaded in FancyVisualLoader
     compileOnly("de.oliver.FancyAnalytics:logger:0.0.6") // loaded in FancyVisualLoader
 
-    implementation("org.lushplugins:ChatColorHandler:5.1.3")
+    implementation("org.lushplugins:ChatColorHandler:5.1.5")
     compileOnly("com.github.MilkBowl:VaultAPI:1.7.1")
 
     // commands
