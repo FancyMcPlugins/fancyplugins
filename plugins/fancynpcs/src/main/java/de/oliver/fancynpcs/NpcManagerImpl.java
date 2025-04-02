@@ -10,6 +10,7 @@ import de.oliver.fancynpcs.api.actions.ActionTrigger;
 import de.oliver.fancynpcs.api.actions.NpcAction;
 import de.oliver.fancynpcs.api.events.NpcsLoadedEvent;
 import de.oliver.fancynpcs.api.skins.SkinData;
+import de.oliver.fancynpcs.api.skins.SkinLoadException;
 import de.oliver.fancynpcs.api.utils.NpcEquipmentSlot;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
@@ -275,8 +276,13 @@ public class NpcManagerImpl implements NpcManager {
             String skinVariantStr = npcConfig.getString("npcs." + id + ".skin.variant", SkinData.SkinVariant.AUTO.name());
             SkinData.SkinVariant skinVariant = SkinData.SkinVariant.valueOf(skinVariantStr);
             if (!skinIdentifier.isEmpty()) {
-                skin = FancyNpcs.getInstance().getSkinManagerImpl().getByIdentifier(skinIdentifier, skinVariant);
-                skin.setIdentifier(skinIdentifier);
+                try {
+                    skin = FancyNpcs.getInstance().getSkinManagerImpl().getByIdentifier(skinIdentifier, skinVariant);
+                    skin.setIdentifier(skinIdentifier);
+                } catch (final SkinLoadException e) {
+                    logger.error("NPC named '" + name + "' identified by '" + id + "' could not have their skin loaded.");
+                    logger.error("  " + e.getReason() + " " + e.getMessage());
+                }
             }
 
 
