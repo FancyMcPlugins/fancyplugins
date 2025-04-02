@@ -3,7 +3,7 @@ package de.oliver.fancynpcs.skins;
 public class SkinUtils {
 
     public static boolean isPlaceholder(String identifier) {
-        return identifier.startsWith("%") && identifier.endsWith("%") || identifier.startsWith("{") && identifier.endsWith("}");
+        return (identifier.startsWith("%") && identifier.endsWith("%")) || (identifier.startsWith("{") && identifier.endsWith("}"));
     }
 
     public static boolean isUUID(String identifier) {
@@ -11,11 +11,11 @@ public class SkinUtils {
     }
 
     public static boolean isURL(String identifier) {
-        return identifier.startsWith("http");
+        return identifier.startsWith("http://") || identifier.startsWith("https://");
     }
 
     public static boolean isFile(String identifier) {
-        return identifier.endsWith(".png") || identifier.endsWith(".jpg") || identifier.endsWith(".jpeg");
+        return !isURL(identifier) && identifier.split("\\.").length > 1;
     }
 
     public static boolean isUsername(String identifier) {
