@@ -79,7 +79,7 @@ dependencies {
     implementation("org.mineskin:java-client-jsoup:3.0.3-SNAPSHOT")
 
     compileOnly("me.clip:placeholderapi:2.11.6")
-    compileOnly("com.intellectualsites.plotsquared:plotsquared-core:7.5.1")
+    compileOnly("com.intellectualsites.plotsquared:plotsquared-core:7.5.2")
 }
 
 paper {
