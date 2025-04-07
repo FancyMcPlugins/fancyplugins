@@ -5,6 +5,8 @@ import de.oliver.fancynpcs.FancyNpcs;
 import de.oliver.fancynpcs.api.Npc;
 import de.oliver.fancynpcs.api.events.NpcModifyEvent;
 import de.oliver.fancynpcs.api.skins.SkinData;
+import de.oliver.fancynpcs.api.skins.SkinLoadException;
+import de.oliver.fancynpcs.skins.SkinUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EntityType;
@@ -18,7 +20,9 @@ import org.incendo.cloud.context.CommandContext;
 import org.incendo.cloud.context.CommandInput;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public enum SkinCMD {
@@ -64,26 +68,34 @@ public enum SkinCMD {
             } else {
                 translator.translate("command_npc_modification_cancelled").send(sender);
             }
-        } else {
+        } else try {
             SkinData.SkinVariant variant = slim ? SkinData.SkinVariant.SLIM : SkinData.SkinVariant.AUTO;
             SkinData skinData = FancyNpcs.getInstance().getSkinManagerImpl().getByIdentifier(skin, variant);
             skinData.setIdentifier(skin);
-            if (!skinData.hasTexture()) {
-                translator.translate("npc_skin_set_later").replace("npc", npc.getData().getName()).send(sender);
-            }
 
             if (new NpcModifyEvent(npc, NpcModifyEvent.NpcModification.SKIN, false, sender).callEvent() && new NpcModifyEvent(npc, NpcModifyEvent.NpcModification.SKIN, skinData, sender).callEvent()) {
+                translator.translate("npc_skin_set")
+                        .replace("npc", npc.getData().getName())
+                        .replace("name", skinData.getIdentifier())
+                        .send(sender);
+                if (!skinData.hasTexture()) {
+                    translator.translate("npc_skin_set_later").replace("npc", npc.getData().getName()).send(sender);
+                }
                 npc.getData().setMirrorSkin(false);
                 npc.getData().setSkinData(skinData);
                 npc.removeForAll();
                 npc.create();
                 npc.spawnForAll();
-                translator.translate("npc_skin_set")
-                        .replace("npc", npc.getData().getName())
-                        .replace("name", skinData.getIdentifier())
-                        .send(sender);
+
             } else {
                 translator.translate("command_npc_modification_cancelled").send(sender);
+            }
+        } catch (final SkinLoadException e) {
+            switch (e.getReason()) {
+                case INVALID_URL -> translator.translate("npc_skin_failure_invalid_url").replace("npc", npc.getData().getName()).send(sender);
+                case INVALID_FILE -> translator.translate("npc_skin_failure_invalid_file").replace("npc", npc.getData().getName()).send(sender);
+                case INVALID_USERNAME -> translator.translate("npc_skin_failure_invalid_username").replace("npc", npc.getData().getName()).send(sender);
+                case INVALID_PLACEHOLDER -> translator.translate("npc_skin_failure_invalid_placeholder").replace("npc", npc.getData().getName()).send(sender);
             }
         }
     }
@@ -96,6 +108,11 @@ public enum SkinCMD {
             add("@none");
             add("@mirror");
             Bukkit.getOnlinePlayers().stream().map(Player::getName).forEach(this::add);
+            // Adding file names inside 'plugins/FancyNpcs/skins' to the list of completions.
+            final File[] files = new File(FancyNpcs.getInstance().getDataFolder(), "skins").listFiles();
+            if (files != null) {
+                Arrays.stream(files).map(File::getName).filter(SkinUtils::isFile).forEach(this::add);
+            }
         }};
     }
 

@@ -316,7 +316,20 @@ messages:
   npc_skin_set: "<dark_gray>› <gray>NPC {warningColor}{npc}<gray> is now using the {warningColor}{name}<gray> skin."
   npc_skin_set_mirror: "<dark_gray>› <gray>NPC {warningColor}{npc}<gray> is now mirroring player skin."
   npc_skin_set_none: "<dark_gray>› <gray>NPC {warningColor}{npc}<gray> is no longer using any skin."
-  npc_skin_set_later: "<dark_gray>› <gray>NPC {warningColor}{npc}<gray> will be updated with the new skin shortly."
+  npc_skin_set_later: "<hover:show_text:'{warningColor}Still loading after more than 30 seconds?<newline><gray>Check console for potential errors and verify everything is correct. Try again in a brief moment...'><dark_gray>› <gray>Skin should be applied in a few seconds... <#848484>ℹ</hover>"
+  npc_skin_failure_invalid_url:
+    - "<click:open_url:'https://docs.fancyplugins.de/fancynpcs/faq/#urls-as-skin'><hover:show_text:'{warningColor}What does that mean?<newline><gray>Click here to find out more about this message.'><dark_gray>› {errorColor}Could not load skin from the specified URL."
+    - "<dark_gray>› <gray>Ensure that the URL points directly to a texture file. <#848484>ℹ</hover></click>"
+  npc_skin_failure_invalid_file:
+    - "<dark_gray>› {errorColor}Could not load skin from the specified file."
+    - "<dark_gray>› <gray>Ensure that the file at specified path exists."
+  npc_skin_failure_invalid_username:
+    - "<dark_gray>› {errorColor}Could not load skin from the specified username."
+    - "<dark_gray>› <gray>Ensure that the username is a valid Minecraft account."
+  npc_skin_failure_invalid_placeholder:
+    - "<click:open_url:'https://docs.fancyplugins.de/fancynpcs/faq/#placeholders-as-skin'><hover:show_text:'{warningColor}What does that mean?<newline><gray>Click here to find out more about this message.'><dark_gray>› {errorColor}Could not load skin from the specified placeholder."
+    - "<dark_gray>› <gray>Ensure that the placeholder does not require"
+    - "<dark_gray>›  <gray>a player instance to be parsed. <#848484>ℹ</hover>"
 
   # Commands (npc teleport)
   npc_teleport_success: "<dark_gray>› <gray>You have been teleported to NPC {warningColor}{npc}<gray>."
