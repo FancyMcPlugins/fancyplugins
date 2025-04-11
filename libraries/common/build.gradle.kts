@@ -30,7 +30,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.12.1")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.12.1")
     testImplementation("org.junit.platform:junit-platform-console-standalone:1.12.1")
-    testImplementation("com.google.code.gson:gson:2.12.1")
+    testImplementation("com.google.code.gson:gson:2.13.0")
 }
 
 tasks {

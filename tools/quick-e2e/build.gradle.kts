@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("com.google.code.gson:gson:2.12.1")
+    compileOnly("com.google.code.gson:gson:2.13.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("org.jetbrains:annotations:26.0.2")
 
