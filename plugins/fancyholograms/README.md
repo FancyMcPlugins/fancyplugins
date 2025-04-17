@@ -32,8 +32,6 @@ With this plugin you can create holograms with customizable properties like:
 - [FancyNpcs](ttps://github.com/FancyMcPlugins/FancyNpcs) integration.
 - ...and much more!
 
-Check out **[images section](#images)** down below.
-
 <br />
 
 ## Installation
@@ -42,102 +40,7 @@ Paper **1.19.4** - **1.21.4** with **Java 21** (or higher) is required. Plugin s
 
 **Spigot** is **not** supported.
 
-### Download (Stable)
+### Download
 
-- **[Hangar](https://hangar.papermc.io/Oliver/FancyHolograms)**
 - **[Modrinth](https://modrinth.com/plugin/fancyholograms)**
-- **[GitHub Releases](https://github.com/FancyMcPlugins/FancyHolograms/releases)**
-
-### Download (Development Builds)
-
-- **[Jenkins CI](https://jenkins.fancyplugins.de/job/FancyHolograms/)**
-- **[FancyPlugins Website](https://fancyplugins.de/FancyHolograms/download)**
-
-<br />
-
-## Documentation
-
-Official documentation is hosted **[here](https://fancyplugins.de/docs/fancyholograms.html)**. Quick reference:
-
-- **[Getting Started](https://fancyplugins.de/docs/fh-getting-started.html)**
-- **[Command Reference](https://fancyplugins.de/docs/fh-commands.html)**
-- **[Using API](https://fancyplugins.de/docs/fh-api.html)**
-
-**Have more questions?** Feel free to ask them on our **[Discord](https://discord.gg/ZUgYCEJUEx)** server.
-
-<br />
-
-## Developer API
-
-More information can be found in **[Documentation](https://fancyplugins.de/docs/fh-api.html)**
-and [Javadocs](https://fancyplugins.de/javadocs/fancyholograms/).
-
-### Maven
-
-```xml
-
-<repository>
-    <id>fancyplugins-releases</id>
-    <name>FancyPlugins Repository</name>
-    <url>https://repo.fancyplugins.de/releases</url>
-</repository>
-```
-
-```xml
-
-<dependency>
-    <groupId>de.oliver</groupId>
-    <artifactId>FancyHolograms</artifactId>
-    <version>[VERSION]</version>
-    <scope>provided</scope>
-</dependency>
-```
-
-### Gradle
-
-```groovy
-repositories {
-    maven("https://repo.fancyplugins.de/releases")
-}
-
-dependencies {
-    compileOnly("de.oliver:FancyHolograms:[VERSION]")
-}
-```
-
-<br />
-
-## Building
-
-Follow these steps to build the plugin locally:
-
-```shell
-# Cloning repository.
-$ git clone https://github.com/FancyMcPlugins/FancyHolograms.git
-# Entering cloned repository.
-$ cd FancyHolograms
-# Compiling and building artifacts.
-$ gradlew shadowJar
-# Once successfully built, plugin .jar can be found in /build/libs directory.
-```
-
-<br />
-
-## Images
-
-Images showcasing the plugin, sent to us by our community.
-
-![Screenshot 1](https://github.com/FancyMcPlugins/FancyHolograms/blob/main/images/screenshots/example1.jpeg?raw=true)  
-<sup>Provided by [@OliverSchlueter](https://github.com/OliverSchlueter)</sup>
-
-![Screenshot 2](https://github.com/FancyMcPlugins/FancyHolograms/blob/main/images/screenshots/example2.jpeg?raw=true)  
-<sup>Provided by [@OliverSchlueter](https://github.com/OliverSchlueter)</sup>
-
-![Screenshot 3](https://github.com/FancyMcPlugins/FancyHolograms/blob/main/images/screenshots/example3.jpeg?raw=true)  
-<sup>Provided by [@OliverSchlueter](https://github.com/OliverSchlueter)</sup>
-
-![Screenshot 4](https://github.com/FancyMcPlugins/FancyHolograms/blob/main/images/screenshots/example4.jpeg?raw=true)  
-<sup>Provided by [@OliverSchlueter](https://github.com/OliverSchlueter)</sup>
-
-![Screenshot 5](https://github.com/FancyMcPlugins/FancyHolograms/blob/main/images/screenshots/example5.jpeg?raw=true)  
-<sup>Provided by [@OliverSchlueter](https://github.com/OliverSchlueter)</sup>
+- **[Hangar](https://hangar.papermc.io/Oliver/FancyHolograms)**
