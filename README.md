@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![](docs/src/static/logos-and-banners/fancyplugins-banner.png)
+![](docs/src/static/logos-and-banners/fancyinnovations-banner.png)
 
 [![Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/modrinth_vector.svg)](https://modrinth.com/user/Oliver)
 [![Hangar](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/hangar_vector.svg)](https://hangar.papermc.io/Oliver)
@@ -13,8 +13,8 @@
 [![discord-plural](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/social/discord-plural_46h.png)](https://discord.gg/ZUgYCEJUEx)
 
 
-[![CodeFactor](https://www.codefactor.io/repository/github/fancymcplugins/fancyplugins/badge)](https://www.codefactor.io/repository/github/fancymcplugins/fancyplugins)
-[![Lines of Code](https://tokei.rs/b1/github/fancymcplugins/fancyplugins?category=code)](https://github.com/fancymcplugins/fancyplugins)
+[![CodeFactor](https://www.codefactor.io/repository/github/fancyinnovations/fancyplugins/badge)](https://www.codefactor.io/repository/github/fancyinnovations/fancyplugins)
+[![Lines of Code](https://tokei.rs/b1/github/fancyinnovations/fancyplugins?category=code)](https://github.com/fancyinnovations/fancyplugins)
 
 </div>
 
@@ -41,8 +41,8 @@
 - Quick E2E: generate a quick end-to-end environment for testing
 
 Future packages that are planned to be added to the monorepo:
-- fancywebsite: https://github.com/FancyMcPlugins/FancyWebsite
-- (fancymorphs: https://github.com/FancyMcPlugins/FancyMorphs)
+- fancywebsite: https://github.com/FancyInnovations/FancyWebsite
+- (fancymorphs: https://github.com/FancyInnovations/FancyMorphs)
 - minecraft-client: a lightweight Minecraft client for testing
 
 ## Usage
