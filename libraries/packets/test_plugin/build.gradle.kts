@@ -13,7 +13,7 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven(url = "https://repo.papermc.io/repository/maven-public/")
-    maven(url = "https://repo.fancyplugins.de/releases")
+    maven(url = "https://repo.fancyinnovations.com/releases")
 }
 
 dependencies {

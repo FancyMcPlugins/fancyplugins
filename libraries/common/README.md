@@ -2,9 +2,9 @@
 
 ```kotlin
 repositories {
-    maven("https://repo.fancyplugins.de/releases/")
+    maven("https://repo.fancyinnovations.com/releases/")
     // or
-    maven("https://repo.fancyplugins.de/snapshots/")
+    maven("https://repo.fancyinnovations.com/snapshots/")
 }
 
 dependencies {

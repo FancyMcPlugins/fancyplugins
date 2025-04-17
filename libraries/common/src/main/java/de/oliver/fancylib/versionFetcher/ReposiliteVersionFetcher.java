@@ -19,7 +19,7 @@ public class ReposiliteVersionFetcher implements VersionFetcher{
     public ComparableVersion fetchNewestVersion() {
         if (newestVersion != null) return newestVersion;
 
-        String jsonString = VersionFetcher.getDataFromUrl("https://repo.fancyplugins.de/api/maven/latest/version/releases/de/oliver/" + pluginName);
+        String jsonString = VersionFetcher.getDataFromUrl("https://repo.fancyinnovations.com/api/maven/latest/version/releases/de/oliver/" + pluginName);
         if (jsonString == null || jsonString.isEmpty()) {
             return null;
         }

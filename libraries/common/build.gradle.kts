@@ -15,7 +15,7 @@ java {
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
-    maven("https://repo.fancyplugins.de/releases")
+    maven("https://repo.fancyinnovations.com/releases")
 }
 
 dependencies {
@@ -37,8 +37,8 @@ tasks {
     publishing {
         repositories {
             maven {
-                name = "fancypluginsReleases"
-                url = uri("https://repo.fancyplugins.de/releases")
+                name = "fancyinnovationsReleases"
+                url = uri("https://repo.fancyinnovations.com/releases")
                 credentials(PasswordCredentials::class)
                 authentication {
                     isAllowInsecureProtocol = true
@@ -47,8 +47,8 @@ tasks {
             }
 
             maven {
-                name = "fancypluginsSnapshots"
-                url = uri("https://repo.fancyplugins.de/snapshots")
+                name = "fancyinnovationsSnapshots"
+                url = uri("https://repo.fancyinnovations.com/snapshots")
                 credentials(PasswordCredentials::class)
                 authentication {
                     isAllowInsecureProtocol = true
