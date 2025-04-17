@@ -41,4 +41,4 @@ jobs:
           java -jar deployment.jar ../../../../plugins/fancynpcs/snapshot_deployment_config.json
 
       - name: Publish to reposilite (snapshots)
-        run: ./gradlew :plugins:fancynpcs:api:publishAllPublicationsToFancypluginsSnapshotsRepository
+        run: ./gradlew :plugins:fancynpcs:api:publishAllPublicationsToFancyinnovationsSnapshotsRepository

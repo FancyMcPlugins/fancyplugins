@@ -25,7 +25,7 @@ public class ModrinthService {
         this.api = ModrinthAPI.rateLimited(
                 UserAgent.builder()
                         .authorUsername("Oliver")
-                        .contact("oliver@fancyplugins.de")
+                        .contact("oliver@fancyinnovations.com")
                         .build(),
                 apiKey
         );

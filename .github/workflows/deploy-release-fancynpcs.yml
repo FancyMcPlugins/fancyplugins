@@ -41,7 +41,7 @@ jobs:
           java -jar deployment.jar ../../../../plugins/fancynpcs/release_deployment_config.json
 
       - name: Publish to reposilite (releases)
-        run: ./gradlew :plugins:fancynpcs:api:publishAllPublicationsToFancypluginsReleasesRepository
+        run: ./gradlew :plugins:fancynpcs:api:publishAllPublicationsToFancyinnovationsReleasesRepository
 
       - name: Publish to reposilite (snapshots)
-        run: ./gradlew :plugins:fancynpcs:api:publishAllPublicationsToFancypluginsSnapshotsRepository
+        run: ./gradlew :plugins:fancynpcs:api:publishAllPublicationsToFancyinnovationsSnapshotsRepository

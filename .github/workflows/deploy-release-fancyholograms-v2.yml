@@ -41,7 +41,7 @@ jobs:
           java -jar deployment.jar ../../../../plugins/fancyholograms-v2/release_deployment_config.json
 
       - name: Publish to reposilite (releases)
-        run: ./gradlew :plugins:fancyholograms-v2:api:publishAllPublicationsToFancypluginsReleasesRepository
+        run: ./gradlew :plugins:fancyholograms-v2:api:publishAllPublicationsToFancyinnovationsReleasesRepository
 
       - name: Publish to reposilite (snapshots)
-        run: ./gradlew :plugins:fancyholograms-v2:api:publishAllPublicationsToFancypluginsSnapshotsRepository
+        run: ./gradlew :plugins:fancyholograms-v2:api:publishAllPublicationsToFancyinnovationsSnapshotsRepository
