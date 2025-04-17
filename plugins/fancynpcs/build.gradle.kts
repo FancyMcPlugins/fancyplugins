@@ -39,7 +39,7 @@ allprojects {
         mavenLocal()
         mavenCentral()
         maven(url = "https://repo.papermc.io/repository/maven-public/")
-        maven(url = "https://repo.fancyplugins.de/releases")
+        maven(url = "https://repo.fancyinnovations.com/releases")
         maven(url = "https://repo.lushplugins.org/releases")
         maven(url = "https://repo.inventivetalent.org/repository/maven-snapshots/")
         maven(url = "https://repo.extendedclip.com/releases/")
@@ -130,8 +130,8 @@ tasks {
     publishing {
         repositories {
             maven {
-                name = "fancypluginsReleases"
-                url = uri("https://repo.fancyplugins.de/releases")
+                name = "fancyinnovationsReleases"
+                url = uri("https://repo.fancyinnovations.com/releases")
                 credentials(PasswordCredentials::class)
                 authentication {
                     isAllowInsecureProtocol = true
@@ -140,8 +140,8 @@ tasks {
             }
 
             maven {
-                name = "fancypluginsSnapshots"
-                url = uri("https://repo.fancyplugins.de/snapshots")
+                name = "fancyinnovationsSnapshots"
+                url = uri("https://repo.fancyinnovations.com/snapshots")
                 credentials(PasswordCredentials::class)
                 authentication {
                     isAllowInsecureProtocol = true

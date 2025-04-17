@@ -19,7 +19,7 @@ allprojects {
         mavenLocal()
         mavenCentral()
         maven(url = "https://repo.papermc.io/repository/maven-public/")
-        maven(url = "https://repo.fancyplugins.de/releases")
+        maven(url = "https://repo.fancyinnovations.com/releases")
         maven(url = "https://repo.lushplugins.org/releases")
         maven(url = "https://jitpack.io")
     }
