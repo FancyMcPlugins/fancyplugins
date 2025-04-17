@@ -4,13 +4,13 @@ title: FancyPlugins
 ---
 #
 
-![](static/logos-and-banners/fancyplugins-banner.png)
+![](static/logos-and-banners/fancyinnovations-banner.png)
 
-Welcome to the FancyPlugins documentation! Here you'll find documentation about how to use the plugins, including installation, commands and API.
+Welcome to the FancyInnovations documentation! Here you'll find documentation about how to use the plugins, including installation, commands and API.
 
-## About FancyPlugins
+## About FancyInnovations
 
-FancyPlugins is a collection of plugins for Minecraft servers. The plugins are designed to be easy to use and highly customizable. The plugins are open-source and free to use.
+FancyInnovations is a collection of plugins for Minecraft servers. The plugins are designed to be easy to use and highly customizable. The plugins are open-source and free to use.
 
 We focus on plugins that can serve many different use-cases. Everyone should be able to use our plugins, no matter if you're running a small private server or a large public server. For large and more complex use-cases, we offer an API that allows you to extend the plugins with your own features.
 
@@ -27,9 +27,9 @@ FancyHolograms is a plugin that allows you to create custom holograms made with 
 ## Quick links
 
 **General:**
-- [Website](https://fancyplugins.de)
+- [Website](https://fancyinnovations.com)
 - [Discord](https://discord.gg/ZUgYCEJUEx)
-- [GitHub](https://github.com/fancymcplugins)
+- [GitHub](https://github.com/fancyinnovations)
 
 **FancyNpcs:**
 - [Download](https://modrinth.com/user/oliver)

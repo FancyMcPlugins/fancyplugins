@@ -1,7 +1,7 @@
 ---
 authors:
 - name: Oliver Schlüter
-  email: oliver@fancyplugins.de
+  email: oliver@fancyinnovations.com
   link: https://github.com/OliverSchlueter
   avatar: https://avatars.githubusercontent.com/u/79666085?v=4
 
@@ -18,7 +18,7 @@ With the new monorepo, the docs are now even closer to the code, which makes it 
 In addition, we have improved the structure and added new content.
 
 !!!
-You can find the new documentation at [https://docs.fancyplugins.de](https://docs.fancyplugins.de)
+You can find the new documentation at [https://docs.fancyinnovations.com](https://docs.fancyinnovations.com)
 !!!
 
 ## Reasons
@@ -62,5 +62,5 @@ We are also working on a section about the product direction and roadmap. You wi
 ## Conclusion
 
 We are happy with the new documentation and hope you like it too.
-Visit [https://docs.fancyplugins.de](https://docs.fancyplugins.de) to check it out.
+Visit [https://docs.fancyinnovations.com](https://docs.fancyinnovations.com) to check it out.
 If you have any feedback or suggestions, feel free to join our Discord server and let us know.

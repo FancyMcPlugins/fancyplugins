@@ -11,7 +11,7 @@ To include the FancyHolograms API in your project, you need to add the following
 **Gradle:**
 ```kotlin
 repositories {
-    maven("https://repo.fancyplugins.de/releases")
+    maven("https://repo.fancyinnovations.com/releases")
 }
 ```
 
@@ -24,9 +24,9 @@ dependencies {
 **Maven:**
 ```xml
 <repository>
-    <id>fancyplugins-releases</id>
-    <name>FancyPlugins Repository</name>
-    <url>https://repo.fancyplugins.de/releases</url>
+    <id>fancyinnovations-releases</id>
+    <name>FancyInnovations Repository</name>
+    <url>https://repo.fancyinnovations.com/releases</url>
 </repository>
 ```
 
@@ -129,6 +129,6 @@ manager.removeHologram("hologram_name");
 
 ## JavaDocs and help
 
-You can find the JavaDocs for the FancyHolograms API [here](https://repo.fancyplugins.de/javadoc/releases/de/oliver/FancyHolograms/latest).
+You can find the JavaDocs for the FancyHolograms API [here](https://repo.fancyinnovations.com/javadoc/releases/de/oliver/FancyHolograms/latest).
 
-Join the [FancyPlugins Discord](https://discord.gg/ZUgYCEJUEx) for help and support. There is a dedicated channel for help about the api (`#holograms-dev`).
+Join the [FancyInnovations Discord](https://discord.gg/ZUgYCEJUEx) for help and support. There is a dedicated channel for help about the api (`#holograms-dev`).

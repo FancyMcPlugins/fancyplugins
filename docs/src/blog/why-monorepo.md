@@ -1,7 +1,7 @@
 ---
 authors:
 - name: Oliver Schlüter
-  email: oliver@fancyplugins.de
+  email: oliver@fancyinnovations.com
   link: https://github.com/OliverSchlueter
   avatar: https://avatars.githubusercontent.com/u/79666085?v=4
 
