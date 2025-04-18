@@ -1,6 +1,6 @@
 ---
 icon: home
-title: FancyPlugins
+title: FancyInnovations
 ---
 #
 
