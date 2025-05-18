@@ -8,6 +8,8 @@ import de.oliver.fancynpcs.api.FancyNpcsPlugin;
 import de.oliver.fancynpcs.api.Npc;
 import de.oliver.fancynpcs.api.NpcAttribute;
 import de.oliver.fancynpcs.api.NpcData;
+import de.oliver.fancynpcs.api.actions.ActionTrigger;
+import de.oliver.fancynpcs.api.actions.NpcAction;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.ApiStatus;
@@ -20,6 +22,7 @@ import java.util.UUID;
 @HologramTraitClass(traitName = "interaction_trait", defaultTrait = true)
 public class InteractionTrait extends HologramTrait {
 
+    private static final FancyNpcsPlugin FN = FancyNpcsPlugin.get();
     private Configuration config;
     private Npc hitbox;
 
@@ -27,12 +30,11 @@ public class InteractionTrait extends HologramTrait {
         if (!PluginUtils.isFancyNpcsEnabled()) {
             throw new IllegalStateException("FancyNpcs is not enabled. Please enable it to use InteractionTrait.");
         }
-
-        this.config = new Configuration(new ArrayList<>());
     }
 
     @Override
     public void onAttach() {
+        this.load();
         this.updateHitbox();
     }
 
@@ -55,7 +57,7 @@ public class InteractionTrait extends HologramTrait {
     public void onUnregister() {
         if (this.hitbox != null) {
             this.hitbox.removeForAll();
-            FancyNpcsPlugin.get().getNpcManager().removeNpc(this.hitbox);
+            FN.getNpcManager().removeNpc(this.hitbox);
             this.hitbox = null;
         }
     }
@@ -79,14 +81,16 @@ public class InteractionTrait extends HologramTrait {
             logger.error(e);
         }
         if (config == null) {
-            config = new Configuration(new ArrayList<>());
+            config = new Configuration(List.of(
+                    new ActionConfig("message", "Hi, you just clicked a hologram!")
+                    ));
             save();
         }
     }
 
     private void updateHitbox() {
-        if (FancyNpcsPlugin.get().getNpcManager().getNpc("hologram_hitbox_for_" + hologram.getData().getName()) == null) {
-            this.hitbox = FancyNpcsPlugin.get().getNpcAdapter().apply(new NpcData(
+        if (FN.getNpcManager().getNpc("hologram_hitbox_for_" + hologram.getData().getName()) == null) {
+            this.hitbox = FN.getNpcAdapter().apply(new NpcData(
                     "hologram_hitbox_for_" + hologram.getData().getName(),
                     UUID.randomUUID(),
                     hologram.getData().getLocation()
@@ -95,19 +99,30 @@ public class InteractionTrait extends HologramTrait {
             this.hitbox.getData().setType(EntityType.INTERACTION);
             this.hitbox.getData().setDisplayName("<empty>");
 
-            // TODO add actions to hitbox
+            List<NpcAction.NpcActionData> actions = new ArrayList<>();
+            for (ActionConfig acfg : this.config.actions()) {
+                NpcAction action = FN.getActionManager().getActionByName(acfg.action());
+                if (action == null) {
+                    logger.warn("Action " + acfg.action() + " is not registered");
+                    continue;
+                }
+
+                actions.add(new NpcAction.NpcActionData(actions.size(), action, acfg.value()));
+            }
+
+            this.hitbox.getData().getActions().put(ActionTrigger.ANY_CLICK, actions);
 
             this.hitbox.create();
             this.hitbox.spawnForAll();
-            FancyNpcsPlugin.get().getNpcManager().registerNpc(this.hitbox);
+            FN.getNpcManager().registerNpc(this.hitbox);
         }
 
         this.hitbox.getData().setLocation(hologram.getData().getLocation());
 
-        NpcAttribute widthAttr = FancyNpcsPlugin.get().getAttributeManager().getAttributeByName(EntityType.INTERACTION, "width");
+        NpcAttribute widthAttr = FN.getAttributeManager().getAttributeByName(EntityType.INTERACTION, "width");
         this.hitbox.getData().addAttribute(widthAttr, String.valueOf(calcWidth()));
 
-        NpcAttribute heightAttr = FancyNpcsPlugin.get().getAttributeManager().getAttributeByName(EntityType.INTERACTION, "height");
+        NpcAttribute heightAttr = FN.getAttributeManager().getAttributeByName(EntityType.INTERACTION, "height");
         this.hitbox.getData().addAttribute(heightAttr, String.valueOf(calcHeight()));
 
         this.hitbox.updateForAll();
@@ -134,13 +149,8 @@ public class InteractionTrait extends HologramTrait {
         return maxCharacters * widthPerCharacter * scale;
     }
 
-    public enum Action {
-        NONE,
-        NEXT_PAGE
-    }
-
     public record ActionConfig(
-            Action action,
+            String action,
             String value
     ) {
 
