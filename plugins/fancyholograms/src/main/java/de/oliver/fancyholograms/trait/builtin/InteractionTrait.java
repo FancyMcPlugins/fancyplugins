@@ -83,7 +83,7 @@ public class InteractionTrait extends HologramTrait {
         if (config == null) {
             config = new Configuration(List.of(
                     new ActionConfig("message", "Hi, you just clicked a hologram!")
-                    ));
+            ));
             save();
         }
     }
@@ -157,9 +157,8 @@ public class InteractionTrait extends HologramTrait {
     }
 
     public record Configuration(
-        List<ActionConfig> actions
+            List<ActionConfig> actions
     ) {
-
 
     }
 }
