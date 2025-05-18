@@ -47,6 +47,11 @@ public class InteractionTrait extends HologramTrait {
     }
 
     @Override
+    public void onModify() {
+        this.updateHitbox();
+    }
+
+    @Override
     public void save() {
         try {
             storage.set(hologram.getData().getName(), config);
