@@ -52,6 +52,15 @@ public class InteractionTrait extends HologramTrait {
     }
 
     @Override
+    public void onUnregister() {
+        if (this.hitbox != null) {
+            this.hitbox.removeForAll();
+            FancyNpcsPlugin.get().getNpcManager().removeNpc(this.hitbox);
+            this.hitbox = null;
+        }
+    }
+
+    @Override
     public void save() {
         try {
             storage.set(hologram.getData().getName(), config);
